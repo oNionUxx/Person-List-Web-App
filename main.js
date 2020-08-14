@@ -249,34 +249,33 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
   if (e.target.classList.contains("edit-btn")) {
     // Restore previous input fields if needed
     Util.backToUsual();
-  }
 
-  // Chosen row
-  let row =
-    e.target.parentElement.parentElement.parentElement.parentElement
-      .parentElement;
+    // Chosen row
+    let row =
+      e.target.parentElement.parentElement.parentElement.parentElement
+        .parentElement;
 
-  if (row != null) {
-    // Loop over row cells
-    while (i < row.children.length - 1) {
-      // Save value of each cell
-      id = row.children[i++].innerText;
-      firstName = row.children[i++].innerText;
-      lastName = row.children[i++].innerText;
-      age = row.children[i++].innerText;
-      ftd = row.children[i++].innerText;
+    if (row != null) {
+      // Loop over row cells
+      while (i < row.children.length - 1) {
+        // Save value of each cell
+        id = row.children[i++].innerText;
+        firstName = row.children[i++].innerText;
+        lastName = row.children[i++].innerText;
+        age = row.children[i++].innerText;
+        ftd = row.children[i++].innerText;
 
-      // Save previous person details
-      previousCurrentPersonDetails = new Person(
-        id,
-        firstName,
-        lastName,
-        age,
-        ftd
-      );
-    }
-    console.log("omer");
-    row.innerHTML = ` 
+        // Save previous person details
+        previousCurrentPersonDetails = new Person(
+          id,
+          firstName,
+          lastName,
+          age,
+          ftd
+        );
+      }
+
+      row.innerHTML = ` 
             <td class="col-2" align="center">${id}</td>
     
             <td class="col-2" align="center">
@@ -312,18 +311,19 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
               </div>
             </td>`;
 
-    // Get all the row inputs
-    const personInputs = document.querySelectorAll("tr td > input");
+      // Get all the row inputs
+      const personInputs = document.querySelectorAll("tr td > input");
 
-    // Loop over all the inputs
-    for (let k = 0; k < personInputs.length; k++) {
-      // If we reach the end of the loop
-      // No undefined or null inputs were found
-      if (k === personInputs.length - 1) {
-        document.querySelector(".firstName").value = firstName;
-        document.querySelector(".lastName").value = lastName;
-        document.querySelector(".age").value = age;
-        document.querySelector(".ftd").value = ftd;
+      // Loop over all the inputs
+      for (let k = 0; k < personInputs.length; k++) {
+        // If we reach the end of the loop
+        // No undefined or null inputs were found
+        if (k === personInputs.length - 1) {
+          document.querySelector(".firstName").value = firstName;
+          document.querySelector(".lastName").value = lastName;
+          document.querySelector(".age").value = age;
+          document.querySelector(".ftd").value = ftd;
+        }
       }
     }
   }
