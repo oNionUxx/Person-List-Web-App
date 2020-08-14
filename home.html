@@ -27,14 +27,16 @@
 
   <body>
     <!-- Image and text -->
-    <header>
-      <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+    <div class="header">
+      <div class="navbar">
+        <div class="logo">
           <i class="fas fa-user"></i>
-          <div class="text">WebAppProject</div>
-        </a>
-      </nav>
-    </header>
+        </div>
+        <div class="text-header">
+          <p>WebAppProject</p>
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <h1 class="display-4 text-center">
@@ -43,36 +45,36 @@
       </h1>
 
       <form id="person-form">
-        <div class="inner" class="row">
-          <div class="col-sm-2 input-design">
+        <div class="inner">
+          <div class="input-design">
             <div class="form-group">
               <label for="id">Id</label>
               <input type="text" id="id" class="form-control" />
             </div>
           </div>
 
-          <div class="col-sm-2 input-design">
+          <div class="input-design">
             <div class="form-group">
               <label for="firstName">First Name</label>
               <input type="text" id="firstName" class="form-control" />
             </div>
           </div>
 
-          <div class="col-sm-2 input-design">
+          <div class="input-design">
             <div class="form-group">
               <label for="lastName">Last Name</label>
               <input type="text" id="lastName" class="form-control" />
             </div>
           </div>
 
-          <div class="col-sm-2 input-design">
+          <div class="input-design">
             <div class="form-group">
               <label for="age">Age</label>
               <input type="text" id="age" class="form-control" />
             </div>
           </div>
 
-          <div class="col-sm-2 input-design">
+          <div class="input-design">
             <div class="form-group">
               <label for="ftd">FTD</label>
               <input type="text" id="ftd" class="form-control" />
@@ -81,7 +83,7 @@
         </div>
 
         <div class="form-btn mb-3 mt-2">
-          <button class="btn btn-primary">Add Person</button>
+          <button class="btn btn-primary btn-block">Add Person</button>
         </div>
       </form>
 
@@ -91,7 +93,7 @@
             <span>Show</span>
           </div>
 
-          <div>
+          <div class="select">
             <select
               class="show-selection custom-select"
               id="inputGroupSelect01"
@@ -116,50 +118,39 @@
           <tr class="row">
             <th class="col-2 arrow">
               Id
-              <div>
+              <div class="sorting-wrapper">
                 <i class="fas fa-sort-up fa-fw filter-id-up"></i>
-              </div>
-
-              <div>
                 <i class="fas fa-sort-down fa-fw filter-id-down"></i>
               </div>
             </th>
             <th class="col-2">
               First Name
-              <div>
+              <div class="sorting-wrapper">
                 <i class="fas fa-sort-up fa-fw filter-first_name-up"></i>
-              </div>
-              <div>
                 <i class="fas fa-sort-down fa-fw filter-first_name-down"></i>
               </div>
             </th>
 
             <th class="col-2">
               Last Name
-              <div>
+              <div class="sorting-wrapper">
                 <i class="fas fa-sort-up fa-fw filter-last_name-up"></i>
-              </div>
-              <div>
                 <i class="fas fa-sort-down fa-fw filter-last_name-down"></i>
               </div>
             </th>
 
             <th class="col-2">
               Age
-              <div>
+              <div class="sorting-wrapper">
                 <i class="fas fa-sort-up fa-fw filter-age-up"></i>
-              </div>
-              <div>
                 <i class="fas fa-sort-down fa-fw filter-age-down"></i>
               </div>
             </th>
 
             <th class="col-2">
               FTD
-              <div>
+              <div class="sorting-wrapper">
                 <i class="fas fa-sort-up fa-fw filter-ftd-up"></i>
-              </div>
-              <div>
                 <i class="fas fa-sort-down fa-fw filter-ftd-down"></i>
               </div>
             </th>

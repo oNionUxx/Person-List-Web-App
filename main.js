@@ -246,35 +246,37 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
   let i = 0;
   let id, firstName, lastName, age, ftd;
 
-  // If user chose the edit button
   if (e.target.classList.contains("edit-btn")) {
     // Restore previous input fields if needed
     Util.backToUsual();
+  }
 
-    // Chosen row
-    let row = e.target.parentElement.parentElement.parentElement.parentElement;
+  // Chosen row
+  let row =
+    e.target.parentElement.parentElement.parentElement.parentElement
+      .parentElement;
 
-    if (row != null) {
-      // Loop over row cells
-      while (i < row.children.length - 1) {
-        // Save value of each cell
-        id = row.children[i++].innerText;
-        firstName = row.children[i++].innerText;
-        lastName = row.children[i++].innerText;
-        age = row.children[i++].innerText;
-        ftd = row.children[i++].innerText;
+  if (row != null) {
+    // Loop over row cells
+    while (i < row.children.length - 1) {
+      // Save value of each cell
+      id = row.children[i++].innerText;
+      firstName = row.children[i++].innerText;
+      lastName = row.children[i++].innerText;
+      age = row.children[i++].innerText;
+      ftd = row.children[i++].innerText;
 
-        // Save previous person details
-        previousCurrentPersonDetails = new Person(
-          id,
-          firstName,
-          lastName,
-          age,
-          ftd
-        );
-      }
-
-      row.innerHTML = ` 
+      // Save previous person details
+      previousCurrentPersonDetails = new Person(
+        id,
+        firstName,
+        lastName,
+        age,
+        ftd
+      );
+    }
+    console.log("omer");
+    row.innerHTML = ` 
             <td class="col-2" align="center">${id}</td>
     
             <td class="col-2" align="center">
@@ -293,32 +295,35 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
                 <input type="text" class="form-control ftd">
             </td>
             <td class="col-2 icons" align="left"> 
+              <div class="options-wrapper">
+
                 <div>
-                    <a href="#"><i class="fas fa-save fa-2x save-btn"></i></i></a>
-                </div>
-    
+                  <a href="#"><i class="fas fa-save fa-2x save-btn"></i></i></a>
+               </div>
+
                 <div>
-                    <a href="#"><i class="fas fa-edit fa-2x edit-btn"></i></a>
+                  <a href="#"><i class="fas fa-edit fa-2x edit-btn"></i></a>
                 </div>
-    
+
                 <div>
-                    <a href="#"><i class="btn btn-danger btn-sm delete">X</i></a>
+                  <a href="#"><i class="btn btn-danger btn-sm delete">X</i></a>
                 </div>
+
+              </div>
             </td>`;
 
-      // Get all the row inputs
-      const personInputs = document.querySelectorAll("tr td > input");
+    // Get all the row inputs
+    const personInputs = document.querySelectorAll("tr td > input");
 
-      // Loop over all the inputs
-      for (let k = 0; k < personInputs.length; k++) {
-        // If we reach the end of the loop
-        // No undefined or null inputs were found
-        if (k === personInputs.length - 1) {
-          document.querySelector(".firstName").value = firstName;
-          document.querySelector(".lastName").value = lastName;
-          document.querySelector(".age").value = age;
-          document.querySelector(".ftd").value = ftd;
-        }
+    // Loop over all the inputs
+    for (let k = 0; k < personInputs.length; k++) {
+      // If we reach the end of the loop
+      // No undefined or null inputs were found
+      if (k === personInputs.length - 1) {
+        document.querySelector(".firstName").value = firstName;
+        document.querySelector(".lastName").value = lastName;
+        document.querySelector(".age").value = age;
+        document.querySelector(".ftd").value = ftd;
       }
     }
   }
@@ -416,6 +421,8 @@ document.querySelector("table thead").addEventListener("click", (e) => {
     // Get filter key word
     filter = Util.getKey(e.target.parentElement.parentElement.innerText);
 
+    console.log();
+
     // If the user want to filter in an ascending way
     if (e.target.classList[3] === `filter-${filter}-up`) {
       Util.handleFilter(`.filter-${filter}-up`, `.filter-${filter}-down`, `up`);
@@ -433,7 +440,6 @@ document.querySelector("table thead").addEventListener("click", (e) => {
 });
 
 /* Event mouseover row */
-
 document.querySelector("#person-list").addEventListener("mouseover", (e) => {
   // Handle nested elements that might cause triggering as well
   if (

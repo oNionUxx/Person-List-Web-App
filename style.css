@@ -1,6 +1,4 @@
-/* Handle navbar */
-
-.navbar .navbar-brand {
+/* .navbar .navbar-brand {
   display: flex;
   align-items: center;
 }
@@ -36,8 +34,6 @@
 h1 {
   margin-bottom: 50px;
 }
-
-/* Handle form */
 
 .inner {
   display: flex;
@@ -75,8 +71,6 @@ form .form-btn button {
   margin: 0px 0px 16px;
 }
 
-/* Handle table */
-
 thead tr {
   background-color: yellow;
 }
@@ -86,7 +80,7 @@ table .icons {
   justify-content: space-evenly
 }
 
-table th {}
+table th i {}
 
 table thead tr th i {
   color: #D3D3D3;
@@ -96,9 +90,9 @@ table thead tr th i {
 table thead tr th.col-2 {
   display: flex;
   justify-content: center;
-  /* padding: 18px; */
+  padding: 18px;
   padding: 5px 0;
-  /* border: 1px solid grey; */
+  border: 1px solid grey;
   text-align: center;
   flex-grow: 1;
   font-size: 16px;
@@ -129,18 +123,10 @@ table input {
   text-align: center;
 }
 
-/* Menu-options */
-
 .menu-options .input-group {
   display: flex;
   align-items: center;
   width: 20%;
-}
-
-table div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 div.show {
@@ -150,8 +136,6 @@ div.show {
 div.entries {
   margin-left: 10px;
 }
-
-/* Handle footer */
 
 footer nav div {
   display: flex;
@@ -187,7 +171,6 @@ footer nav div {
 }
 
 @media(max-width: 768px) {
-  /* Menu-options */
   .menu-options .input-group {
     display: flex;
     justify-content: center;
@@ -201,7 +184,7 @@ footer nav div {
 }
 
 @media(max-width: 375px) {
-  /* Menu-options */
+  
   .menu-options .input-group {
     display: flex;
     justify-content: center;
@@ -228,4 +211,145 @@ footer nav div {
     line-height: normal;
     border-radius: .2rem;
   }
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Global settings */
+
+p {
+  margin: 0;
+  font-size: 2rem;
+}
+
+i {
+  font-size: 2rem;
+}
+
+.header .navbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header .navbar p {
+  padding-left: 1rem;
+}
+
+.container h1 i {
+  font-size: 3rem;
+}
+
+#person-form .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#person-form .inner .input-design .form-group label {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.form-btn button {
+  width: 50%;
+  margin: 0 auto;
+}
+
+div.alert.alert-info {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-options .input-group div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.entries, div.select {
+  margin-left: 10px;
+}
+
+.menu-options .input-group div span {
+  font-size: 1.2rem;
+}
+
+thead tr {
+  background-color: yellow;
+}
+
+table thead tr th {
+  display: flex;
+  justify-content: center;
+}
+
+.sorting-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sorting-wrapper i {
+  cursor: pointer;
+  line-height: 0;
+  height: 0;
+}
+
+.sorting-wrapper i.fa-sort-up {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.active-filter {
+  color: #ccc;
+}
+
+.active-row {
+  background-color: #44eeaa !important;
+}
+
+.options-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+footer nav div {
+  display: flex;
+  justify-content: center;
+}
+
+.list-pagination button {
+  width: 50px;
+  height: 50px;
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #44aaee;
+  margin: 5px;
+  transition: 0.4s;
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.list-pagination .prev-next {
+  width: 80px;
+}
+
+.list-pagination button:hover {
+  background-color: #44eeaa;
+}
+
+.list-pagination button.active {
+  background-color: #44eeaa;
 }

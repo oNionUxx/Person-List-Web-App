@@ -1,6 +1,10 @@
 // Util Class
 class Util {
   static handleFilter(className_1, className_2, state) {
+    console.log(className_1);
+    console.log(className_2);
+    console.log(state);
+
     // Element to contains the last 'active-filter' class
     // in case of sorting category has been changed.
     const icon = document.querySelector("i.active-filter");
@@ -125,26 +129,27 @@ class Util {
         ftd != ""
       ) {
         let person = new Person(id, first_name, last_name, age, ftd);
-
         if (flag == 0) person = previousCurrentPersonDetails;
 
         row.innerHTML = ` 
-                <td class="col-2" align="center">${person.id}</td>
-                <td class="col-2" align="center">${person.first_name}</td>
-                <td class="col-2" align="center">${person.last_name}</td>
-                <td class="col-2" align="center">${person.age}</td>
-                <td class="col-2" align="center">${person.ftd}</td>
-                <td class="col-2 icons" align="left"> 
-                    <div>
-                        <a href="#"><i class="fas fa-save fa-2x save-btn"></i></i></a>
-                    </div>
-                    <div>
-                        <a href="#"><i class="fas fa-edit fa-2x edit-btn"></i></a>
-                    </div>
-                    <div>
-                        <a href="#"><i class="btn btn-danger btn-sm delete">X</i></a>
-                    </div>
-                </td>`;
+        <td class="col-2" align="center">${person.id}</td>
+        <td class="col-2" align="center">${person.first_name}</td>
+        <td class="col-2" align="center">${person.last_name}</td>
+        <td class="col-2" align="center">${person.age}</td>
+        <td class="col-2" align="center">${person.ftd}</td>
+        <td class="col-2 icons" align="left"> 
+        <div class="options-wrapper">
+            <div>
+                <a href="#"><i class="fas fa-save fa-2x save-btn"></i></i></a>
+            </div>
+            <div>
+                <a href="#"><i class="fas fa-edit fa-2x edit-btn"></i></a>
+            </div>
+            <div>
+                <a href="#"><i class="btn btn-danger btn-sm delete">X</i></a>
+            </div>
+          </div>
+        </td>`;
       } else {
         // Display user alert in case of error or an empty input
         UI.showAlert(

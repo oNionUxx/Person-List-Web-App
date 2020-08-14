@@ -25,6 +25,7 @@ class UI {
         <td class="col-2" align="center">${person.age}</td>
         <td class="col-2" align="center">${person.ftd}</td>
         <td class="col-2 icons" align="left"> 
+        <div class="options-wrapper">
             <div>
                 <a href="#"><i class="fas fa-save fa-2x save-btn"></i></i></a>
             </div>
@@ -34,6 +35,7 @@ class UI {
             <div>
                 <a href="#"><i class="btn btn-danger btn-sm delete">X</i></a>
             </div>
+          </div>
         </td>`;
 
     return row;
