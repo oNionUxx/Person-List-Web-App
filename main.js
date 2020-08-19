@@ -225,8 +225,9 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
       // Update current data list
       Util.getUpdatedDataList();
 
+      console.log(list.children.length);
       // If no items to display decrement current page number
-      list.children.length - 1 === 0 ? --current_page : current_page;
+      //list.children.length < 1 ? --current_page : current_page;
 
       // If database list is empty clear UI
       if (database.length === 0) list.innerHTML = "";

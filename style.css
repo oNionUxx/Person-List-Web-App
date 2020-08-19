@@ -139,6 +139,9 @@ footer nav div {
 }
 
 @media(max-width: 768px) {
+  .header .navbar {
+    justify-content: center;
+  }
   #person-form .inner {
     flex-direction: column;
   }
@@ -163,5 +166,46 @@ footer nav div {
   }
   .btn-danger {
     height: 28px;
+  }
+  div.alert.alert-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .options-yes-no {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    display: inline-block;
+    text-align: center;
+  }
+  .options-yes-no .btn.btn-primary.yes-btn, .options-yes-no .btn.btn-primary.no-btn {
+    margin: 0 auto;
+  }
+  .col-2 {
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .sorting-wrapper i {
+    font-size: 16px;
+  }
+  .table td, .table th, .table thead th {
+    border: none;
+  }
+  .fas.fa-edit, .fas.fa-save {
+    font-size: 18px;
+  }
+  .btn-danger {
+    height: 20px;
+    font-size: 8px;
+  }
+  .container {
+    padding: 0;
+  }
+  table, thead, tbody {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
