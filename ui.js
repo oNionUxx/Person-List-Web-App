@@ -70,8 +70,10 @@ class UI {
       const button_div = document.createElement("div");
       button_div.className = "options-yes-no";
       button_div.innerHTML = `<span id="timer"></span>
-             <button class="btn btn-primary yes-btn">Yes</button>
-             <button class="btn btn-primary no-btn">No</button>`;
+              <div class="wrap-yes-no"> 
+              <button class="btn btn-primary yes-btn">Yes</button>
+              <button class="btn btn-primary no-btn">No</button>
+              </div>`;
 
       timerState = Util.timerFunction();
       div.appendChild(button_div);
@@ -82,8 +84,10 @@ class UI {
 
     container.insertBefore(div, form);
 
-    if (action === `info-message`) {
-      setTimeout(() => document.querySelector(".alert").remove(), 2000); // Vanish in 2 second
+    if (action != null) {
+      if (action === `info-message`) {
+        setTimeout(() => document.querySelector(".alert").remove(), 2000); // Vanish in 2 second
+      }
     }
   }
 

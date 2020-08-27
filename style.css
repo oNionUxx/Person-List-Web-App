@@ -54,11 +54,14 @@ div.alert.alert-info {
 
 .menu-options .input-group div {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-div.entries, div.select {
+.menu-options-b {
+  display: none !important;
+}
+
+div.entries, div.select, div.sort {
   margin-left: 10px;
 }
 
@@ -138,21 +141,36 @@ footer nav div {
   background-color: #44eeaa;
 }
 
-@media(max-width: 768px) {
-  .header .navbar {
-    justify-content: center;
+@media(max-width: 1235px) {
+  .container {
+    max-width: 90%;
   }
+  div.input-design {
+    margin: 5px;
+  }
+}
+
+@media(max-width: 970px) {
   #person-form .inner {
     flex-direction: column;
   }
   #person-form .inner .input-design {
-    width: 80%;
+    width: 50%;
+  }
+}
+
+@media(max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  .header .navbar {
+    justify-content: center;
+  }
+  #person-form .inner .input-design {
+    width: 60%;
   }
   .form-btn button {
     width: 80%;
-  }
-  .menu-options .input-group {
-    justify-content: center;
   }
   .fas.fa-edit, .fas.fa-save {
     font-size: 28px;
@@ -163,9 +181,6 @@ footer nav div {
   }
   .options-wrapper div {
     padding: 0 3px;
-  }
-  .btn-danger {
-    height: 28px;
   }
   div.alert.alert-info {
     display: flex;
@@ -181,31 +196,56 @@ footer nav div {
   .options-yes-no .btn.btn-primary.yes-btn, .options-yes-no .btn.btn-primary.no-btn {
     margin: 0 auto;
   }
-  .col-2 {
-    font-size: 12px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+  thead tr.row {
+    display: none;
   }
-  .sorting-wrapper i {
+  tbody tr.row {
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  tbody tr.row td.col-2 {
+    max-width: 60% !important;
+    color: #333;
+    font-weight: bold;
     font-size: 16px;
+    background-color: none;
+  }
+  .fas.fa-edit, .fas.fa-save {
+    font-size: 32px;
+  }
+  .btn-danger {
+    height: 25px;
+    font-size: 11px;
   }
   .table td, .table th, .table thead th {
     border: none;
   }
-  .fas.fa-edit, .fas.fa-save {
-    font-size: 18px;
-  }
   .btn-danger {
-    height: 20px;
-    font-size: 8px;
+    height: 28px;
+    font-size: 12px;
   }
-  .container {
-    padding: 0;
+  .menu-options .input-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
-  table, thead, tbody {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  .menu-options-b {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .menu-options-a, .menu-options-b {
+    display: flex;
+    width: 275px;
+  }
+  .menu-options-a {
+    justify-content: flex-start;
+  }
+  .custom-select {
+    width: 105px !important;
   }
 }
