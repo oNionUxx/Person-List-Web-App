@@ -176,10 +176,10 @@ footer nav div {
     justify-content: center;
   }
   #person-form .inner .input-design {
-    width: 80%;
+    width: 60%;
   }
   .form-btn button {
-    width: 80%;
+    width: 60%;
   }
   .fas.fa-edit, .fas.fa-save {
     font-size: 28px;
