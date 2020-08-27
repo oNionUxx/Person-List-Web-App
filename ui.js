@@ -72,7 +72,7 @@ class UI {
       button_div.innerHTML = `
       <div class="wrapper-span-btn" style="display:flex;  justify-content: space-between;">
       <span id="timer"></span>
-              <div class="wrap-yes-no"> 
+              <div class="wrap-yes-no mt-3"> 
               <button class="btn btn-primary yes-btn">Yes</button>
               <button class="btn btn-primary no-btn">No</button>
               </div>

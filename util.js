@@ -88,7 +88,7 @@ class Util {
           document.querySelector(".alert").remove();
         }
       }
-    }, 8000);
+    }, 1000);
     return x;
   };
 
