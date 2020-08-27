@@ -208,9 +208,9 @@ footer nav div {
   .wrapper-span-btn {
     flex-direction: column;
   }
-  /* thead tr.row {
+  thead tr.row {
     display: none;
-  } */
+  }
   tbody tr.row {
     flex-direction: column;
     width: 60%;
