@@ -69,10 +69,13 @@ class UI {
       // Add 'Yes' , 'No' Buttons
       const button_div = document.createElement("div");
       button_div.className = "options-yes-no";
-      button_div.innerHTML = `<span id="timer"></span>
+      button_div.innerHTML = `
+      <div class="wrapper-span-btn" style="display:flex;  justify-content: space-between;">
+      <span id="timer"></span>
               <div class="wrap-yes-no"> 
               <button class="btn btn-primary yes-btn">Yes</button>
               <button class="btn btn-primary no-btn">No</button>
+              </div>
               </div>`;
 
       timerState = Util.timerFunction();
