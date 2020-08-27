@@ -207,6 +207,7 @@ footer nav div {
   }
   .wrapper-span-btn {
     flex-direction: column;
+    margin-top: 8px !important;
   }
   thead tr.row {
     display: none;
