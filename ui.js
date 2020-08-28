@@ -89,7 +89,11 @@ class UI {
 
     if (action != null) {
       if (action === `info-message`) {
-        setTimeout(() => document.querySelector(".alert").remove(), 2000); // Vanish in 2 second
+        const alert = document.querySelector(".alert");
+
+        setTimeout(() => {
+          alert.style.display = "none";
+        }, 2000); // Vanish in 2 second
       }
     }
   }

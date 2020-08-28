@@ -191,11 +191,11 @@ footer nav div {
   .options-wrapper div {
     padding: 0 3px;
   }
-  div.alert.alert-info, div.alert.alert-danger {
+  div.alert.alert-info, div.alert.alert-danger, div.alert.alert-success {
     position: fixed;
     /* position the top  edge of the element at the middle of the parent */
     left: 50%;
-    top: 10%;
+    top: 20%;
     /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%, -50%);
     /* This is a shorthand of
@@ -205,6 +205,9 @@ footer nav div {
     margin: auto;
     z-index: 2;
     width: 90%;
+  }
+  div.alert.alert-danger, div.alert.alert-success {
+    top: 10%;
   }
   .options-yes-no {
     display: flex;

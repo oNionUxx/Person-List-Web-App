@@ -344,8 +344,17 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
   e.preventDefault();
 
   if (e.target.classList.contains("save-btn")) {
-    // Get current row person id
-    let currentRowId = tr.firstElementChild.innerText;
+    let currentRowId;
+    if (tr != "") {
+      // Get current row person id
+      currentRowId = tr.firstElementChild.innerText;
+    } else {
+      currentRowId =
+        e.target.parentElement.parentElement.parentElement.parentElement
+          .parentElement;
+    }
+
+    console.log(currentRowId);
 
     let j = 0;
 
