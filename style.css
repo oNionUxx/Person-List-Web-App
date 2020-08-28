@@ -194,6 +194,7 @@ footer nav div {
   div.alert.alert-info {
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
   .options-yes-no {
     display: flex;
@@ -226,6 +227,9 @@ footer nav div {
     font-weight: bold;
     font-size: 16px;
     background-color: none;
+  }
+  .wrap-yes-no {
+    margin-top: 6px;
   }
   .fas.fa-edit, .fas.fa-save {
     font-size: 32px;
