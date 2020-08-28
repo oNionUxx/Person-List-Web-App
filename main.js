@@ -185,12 +185,19 @@ document.querySelector("#person-form").addEventListener("click", (e) => {
 
 /* Event: Remove a person */
 document.querySelector("#person-list").addEventListener("click", (e) => {
+  console.log("check");
   if (e.target.classList.contains("delete")) {
     // Remove person from UI
     let rowToBeDeleted = UI.removePerson(e.target);
-
     // Get current item person id
+    if (rowToBeDeleted == "") {
+      rowToBeDeleted =
+        e.target.parentElement.parentElement.parentElement.parentElement
+          .parentElement;
+    }
+
     let idValue = rowToBeDeleted.children[0].innerText;
+    console.log(idValue);
 
     // Get person full name
     let fullName =
@@ -473,7 +480,9 @@ document.querySelector("#person-list").addEventListener("mouseover", (e) => {
     e.target.parentElement.tagName === "A"
   ) {
     Util.findRowByIndex(e.target.parentElement.rowIndex);
-    tr.classList.add("active-row");
+    if (tr != "") {
+      tr.classList.add("active-row");
+    }
   }
 });
 

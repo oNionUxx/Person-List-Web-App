@@ -70,7 +70,7 @@ class Util {
     // Update the count down every 1 second
     let x = setInterval(function () {
       // Find the distance between now and the count down date
-      let distance = 10000 - count;
+      let distance = 9000 - count;
 
       // Time calculations for seconds
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -88,7 +88,7 @@ class Util {
           document.querySelector(".alert").remove();
         }
       }
-    }, 1000);
+    }, 900);
     return x;
   };
 
