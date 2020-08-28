@@ -185,7 +185,6 @@ document.querySelector("#person-form").addEventListener("click", (e) => {
 
 /* Event: Remove a person */
 document.querySelector("#person-list").addEventListener("click", (e) => {
-  console.log("check");
   if (e.target.classList.contains("delete")) {
     // Remove person from UI
     let rowToBeDeleted = UI.removePerson(e.target);
@@ -351,12 +350,8 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
     } else {
       currentRowId =
         e.target.parentElement.parentElement.parentElement.parentElement
-          .parentElement;
+          .parentElement.firstElementChild.innerText;
     }
-
-    console.log(currentRowId);
-
-    let j = 0;
 
     for (let i = 0; i < list.children.length; i++) {
       // If any row contains some sort of inputs
@@ -374,6 +369,7 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
           // If an empty input was found
           // or invalid one Break current loop and
           // restore row to previous state
+
           if (
             personInputs[k].value === "" ||
             personInputs[k].style.color === `red`
@@ -391,14 +387,15 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
           // End of inputs array - no empty fields were found
           else if (k === personInputs.length - 1) {
             // Loop over the number of inputs
-            while (j < personInputs.length) {
+            for (let j = 0; j < personInputs.length; ++j) {
               // Instantiate person
-              const id = list.children[i].firstElementChild.innerText;
-              const first_name = personInputs[j++].value;
-              const last_name = personInputs[j++].value;
-              const age = personInputs[j++].value;
-              const ftd = personInputs[j++].value;
 
+              const id = list.children[i].firstElementChild.innerText;
+              const first_name = personInputs[0].value;
+              const last_name = personInputs[1].value;
+              const age = personInputs[2].value;
+              const ftd = personInputs[3].value;
+              console.log(currentRowId);
               // Verify the save button is the right one according to person id
               if (
                 currentRowId === list.children[i].firstElementChild.innerText
@@ -413,6 +410,7 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
                 flag = 0;
               }
               // Restore row before inputs were initially created
+              console.log(list.children[i]);
               Util.restoreRow(list.children[i]);
             }
           }

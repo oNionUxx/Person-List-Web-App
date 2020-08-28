@@ -112,6 +112,7 @@ class Util {
   }
 
   static restoreRow(row) {
+    console.log(row);
     if (row.children[1].firstElementChild != null) {
       // Get table inputs after editing inputs
       const id = row.children[0].innerText;
