@@ -1,80 +1,82 @@
 /* Event: Validate person input fields */
 document.querySelector("body").addEventListener("input", (e) => {
-  e.preventDefault();
-  let input, current_case;
+  if (e.target.tagName === "INPUT") {
+    e.preventDefault();
+    let input, current_case;
 
-  // Get form input id name
-  if (
-    e.target.parentElement.parentElement.parentElement.parentElement.tagName ===
-    `FORM`
-  ) {
-    input = document.querySelector(`#${e.target.id}`);
-    current_case = input.id;
-  }
+    // Get form input id name
+    if (
+      e.target.parentElement.parentElement.parentElement.parentElement
+        .tagName === `FORM`
+    ) {
+      input = document.querySelector(`#${e.target.id}`);
+      current_case = input.id;
+    }
 
-  // Get table input class name
-  else if (
-    e.target.parentElement.parentElement.parentElement.parentElement.tagName ===
-    "TABLE"
-  ) {
-    input = document.querySelector(`.${e.target.classList[1]}`);
-    current_case = input.classList[1];
-  }
+    // Get table input class name
+    else if (
+      e.target.parentElement.parentElement.parentElement.parentElement
+        .tagName === "TABLE"
+    ) {
+      input = document.querySelector(`.${e.target.classList[1]}`);
+      current_case = input.classList[1];
+    }
 
-  // Red input color indicates an invalid input
-  input.style.color = `red`;
-  let message = ``;
+    // Red input color indicates an invalid input
+    input.style.color = `red`;
+    let message = ``;
 
-  // Switch case
-  // Validate input fields using regex
-  // If the user input is invalid an alert message will pop
+    // Switch case
+    // Validate input fields using regex
+    // If the user input is invalid an alert message will pop
 
-  if (input.value != "") {
-    switch (current_case) {
-      case `id`: {
-        display_message = Exceptions.isValidNumber(input.value);
-        if (!display_message) message = `Person id must be a valid number!`;
-        break;
-      }
+    if (input.value != "") {
+      switch (current_case) {
+        case `id`: {
+          display_message = Exceptions.isValidNumber(input.value);
+          if (!display_message) message = `Person id must be a valid number!`;
+          break;
+        }
 
-      case `firstName`: {
-        display_message = Exceptions.isValidName(input.value);
-        if (!display_message)
-          message = `Person name must contains at least characters!`;
-        break;
-      }
+        case `firstName`: {
+          display_message = Exceptions.isValidName(input.value);
+          if (!display_message)
+            message = `Person name must contains at least characters!`;
+          break;
+        }
 
-      case `lastName`: {
-        display_message = Exceptions.isValidName(input.value);
-        if (!display_message)
-          message = `Person name contains at least characters!`;
-        break;
-      }
+        case `lastName`: {
+          display_message = Exceptions.isValidName(input.value);
+          if (!display_message)
+            message = `Person name contains at least characters!`;
+          break;
+        }
 
-      case `age`: {
-        display_message = Exceptions.isValidAge(input.value);
-        if (!display_message)
-          message = `person age must be a valid number and above the age of 18!`;
-        break;
-      }
+        case `age`: {
+          display_message = Exceptions.isValidAge(input.value);
+          if (!display_message)
+            message = `person age must be a valid number and above the age of 18!`;
+          break;
+        }
 
-      case `ftd`: {
-        display_message = Exceptions.isValidFtd(input.value);
-        if (!display_message)
-          message = `Person ftd must be a valid number & in the range of (5000$-120000$)`;
-        break;
+        case `ftd`: {
+          display_message = Exceptions.isValidFtd(input.value);
+          if (!display_message)
+            message = `Person ftd must be a valid number & in the range of (5000$-120000$)`;
+          break;
+        }
       }
     }
-  }
-  // Display the user an informative message about his invalid input
-  if (!display_message && message != "")
-    UI.showAlert(message, `danger`, `exception`);
-  else {
-    // Black text indicates a valid input
-    input.style.color = `black`;
+    // Display the user an informative message about his invalid input
+    if (!display_message && message != "")
+      UI.showAlert(message, `danger`, `exception`);
+    else {
+      // Black text indicates a valid input
+      input.style.color = `black`;
 
-    if (document.querySelector(".alert") != null)
-      document.querySelector(".alert").remove();
+      if (document.querySelector(".alert") != null)
+        document.querySelector(".alert").remove();
+    }
   }
 });
 
@@ -406,10 +408,35 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
 
 /* Event: display entries */
 const show = document
-  .querySelector(".show-selection")
+  .querySelector("#inputGroupSelect01")
   .addEventListener("change", (e) => {
     current_page = 1;
     rows = e.target.value;
+    UI.displayPerson();
+  });
+
+/* */
+const sorting = document
+  .querySelector("#inputGroupSelect02")
+  .addEventListener("change", (e) => {
+    sorting_state = "up";
+
+    if (e.target.value === "Id") {
+      filter = "id";
+    } else if (e.target.value === "First Name") {
+      filter = "first_name";
+    } else if (e.target.value === "Last Name") {
+      filter = "last_name";
+    } else if (e.target.value === "Age") {
+      filter = "age";
+    } else {
+      filter = "ftd";
+    }
+
+    // Calling sorting function
+    Sort.mainSort();
+
+    // Update UI
     UI.displayPerson();
   });
 
@@ -421,8 +448,6 @@ document.querySelector("table thead").addEventListener("click", (e) => {
 
     // Get filter key word
     filter = Util.getKey(e.target.parentElement.parentElement.innerText);
-
-    console.log();
 
     // If the user want to filter in an ascending way
     if (e.target.classList[3] === `filter-${filter}-up`) {
