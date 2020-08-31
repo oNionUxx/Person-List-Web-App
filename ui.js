@@ -4,6 +4,8 @@ class UI {
   static displayPerson() {
     if (database.length > 0) {
       // Display data in table according to required page and number of rows
+      database = Store.getPersons();
+      console.log(database);
       Pagination.displayList(database, list, rows, current_page);
       Pagination.setUpPagination(database, pagination, rows);
     } else {

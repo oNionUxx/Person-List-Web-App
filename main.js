@@ -196,7 +196,6 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
     }
 
     let idValue = rowToBeDeleted.children[0].innerText;
-    console.log(idValue);
 
     // Get person full name
     let fullName =
@@ -233,7 +232,6 @@ document.querySelector("#person-list").addEventListener("click", (e) => {
       // Update current data list
       Util.getUpdatedDataList();
 
-      console.log(list.children.length);
       // If no items to display decrement current page number
       //list.children.length < 1 ? --current_page : current_page;
 
